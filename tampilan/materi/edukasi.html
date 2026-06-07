@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edukasi Diabetes - Pahami Penyakitmu Sejak Dini</title>
+    <link rel="stylesheet" href="../beranda/beranda.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-box">
+        <div class="logo">
+          <a href="../beranda/beranda.html"
+            ><img
+              src="../../aset/logo/logo.png"
+              alt="HEALTHY Web Logo"
+              class="logo-img"
+          /></a>
+        </div>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../beranda/beranda.html" class="nav-item">Home</a></li>
+            <li><a href="edukasi.html" class="nav-item active">Materi</a></li>
+            <li>
+              <a href="../kalkulator/kalkulatorGula.html" class="nav-item"
+                >Cek Risiko</a
+              >
+            </li>
+            <li><a href="../gim/gim.html" class="nav-item">Trivia</a></li>
+          </ul>
+        </nav>
+
+        <div class="hamburger-menu" id="hamburger-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__background">
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__word">Diabetes:</span>
+          <span class="hero__word">Penyakit</span>
+          <span class="hero__word">yang</span>
+          <span class="hero__word">Perlu</span>
+          <span class="hero__word">Kita</span>
+          <span class="hero__word">Ketahui</span>
+        </h1>
+        <p class="hero__subtitle" id="heroSubtitle">
+          1 dari 3 orang muda Indonesia belum menyadari risiko diabetes mereka.
+          Saatnya kita ubah itu.
+        </p>
+        <div class="hero__stat">
+          <div class="stat-item">
+            <span class="stat-number" data-target="37">0</span>
+            <span class="stat-label">Juta penderita di Indonesia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="62">0</span>
+            <span class="stat-label">% berusia di bawah 40 tahun</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-hint">
+        <span>Scroll ke bawah</span>
+      </div>
+    </section>
+
+    <!-- ===== APA ITU DIABETES? ===== -->
+    <section class="section intro-diabetes" id="introDiabetes">
+      <div class="container">
+        <h2 class="section-title">Apa Itu Diabetes?</h2>
+        <div class="intro-content">
+          <p class="intro-text">
+            Diabetes adalah penyakit kronis yang terjadi ketika
+            <strong>kadar gula (glukosa) dalam darah Anda terlalu tinggi</strong
+            >. Ini bukan sekadar penyakit tua-tua – jutaan anak muda dan dewasa
+            muda mengalaminya tanpa menyadari.
+          </p>
+
+          <div class="diabetes-types">
+            <div class="type-card fade-in-element">
+              <div class="type-icon">1</div>
+              <h3 id="diabetes-tipe-1">Diabetes Tipe 1</h3>
+              <p>
+                Kondisi auto-imun di mana tubuh tidak dapat memproduksi insulin.
+                Biasanya terdiagnosis sejak kecil atau remaja, namun bisa muncul
+                pada usia berapa pun.
+              </p>
+            </div>
+            <div class="type-card fade-in-element">
+              <div class="type-icon">2</div>
+              <h3 id="diabetes-tipe-2">Diabetes Tipe 2</h3>
+              <p>
+                Tipe yang paling umum (90% kasus). Tubuh tidak menggunakan
+                insulin dengan efektif atau tidak membuat cukup insulin. Sering
+                dikaitkan dengan gaya hidup dan berat badan.
+              </p>
+            </div>
+            <div class="type-card fade-in-element">
+              <div class="type-icon">3</div>
+              <h3>Diabetes Gestasional</h3>
+              <p>
+                Terjadi saat kehamilan. Meskipun biasanya hilang setelah
+                melahirkan, meningkatkan risiko mengembangkan Tipe 2 di kemudian
+                hari.
+              </p>
+            </div>
+          </div>
+
+          <p class="intro-text highlight-text">
+            <strong>Penting:</strong> Diabetes dapat dikelola dan dicegah dengan
+            perubahan gaya hidup yang tepat. Kunci adalah mendeteksi dini dan
+            mengambil tindakan sekarang.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DATA & RISET ===== -->
+    <section class="section data-section" id="dataSection">
+      <div class="container">
+        <h2 class="section-title">
+          Data & Riset: Anak Muda Indonesia vs Diabetes
+        </h2>
+
+        <div class="data-content">
+          <div class="data-text fade-in-element">
+            <p>
+              Berdasarkan data terbaru dari Kementerian Kesehatan RI dan
+              penelitian global,
+              <strong
+                >prevalensi diabetes pada anak muda Indonesia terus
+                meningkat</strong
+              >. Berikut adalah breakdown data penderita diabetes di Indonesia
+              berdasarkan kelompok usia dan status kesehatan:
+            </p>
+          </div>
+
+          <div class="chart-container fade-in-element">
+            <canvas id="diabetesChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PEMICU DIABETES ===== -->
+    <section class="section triggers-section" id="triggersSection">
+      <div class="container">
+        <h2 class="section-title">
+          5 Pemicu Utama Diabetes yang Perlu Anda Pahami
+        </h2>
+        <p class="section-subtitle">
+          Diabetes tidak terjadi begitu saja. Ada faktor-faktor spesifik yang
+          meningkatkan risiko Anda. Mari kita identifikasi dan pahami apa saja
+          pemicu utamanya.
+        </p>
+
+        <div class="triggers-grid">
+          <!-- Trigger 1 -->
+          <div class="trigger-card fade-in-element">
+            <div class="trigger-number">01</div>
+            <h3 class="trigger-title">Gaya Hidup Sedentary (Kurang Gerak)</h3>
+            <p class="trigger-desc">
+              Di era digital ini, banyak dari kita menghabiskan 8-10 jam sehari
+              di depan layar.
+              <strong
+                >Kurangnya aktivitas fisik mengurangi kemampuan tubuh
+                menggunakan glukosa dengan efisien.</strong
+              >
+              Akibatnya, glukosa menumpuk di darah. Researcher menemukan bahwa
+              hanya 30 menit aktivitas sedang setiap hari dapat mengurangi
+              risiko diabetes hingga 30%.
+            </p>
+          </div>
+
+          <!-- Trigger 2 -->
+          <div class="trigger-card fade-in-element">
+            <div class="trigger-number">02</div>
+            <h3 class="trigger-title">Pola Makan Tidak Sehat</h3>
+            <p class="trigger-desc">
+              Makanan tinggi gula, lemak jenuh, dan kalori kosong adalah musuh
+              utama.
+              <strong
+                >Konsumsi minuman bersoda, makanan siap saji, dan dessert
+                berlebihan</strong
+              >
+              menyebabkan lonjakan gula darah yang drastis. Pankreas Anda
+              bekerja sangat keras untuk memproduksi insulin, dan lama-kelamaan
+              organ ini bisa "lelah" dan tidak mampu menghasilkan insulin cukup
+              (kondisi yang disebut insulin resistance).
+            </p>
+          </div>
+
+          <!-- Trigger 3 -->
+          <div class="trigger-card fade-in-element">
+            <div class="trigger-number">03</div>
+            <h3 class="trigger-title">Stres Kronis & Tidur Kurang</h3>
+            <p class="trigger-desc">
+              Stres memicu pelepasan hormon cortisol dan adrenalin, yang
+              meningkatkan gula darah. Tidur kurang (kurang dari 6 jam)
+              mengganggu regulasi hormon, terutama insulin dan leptin.
+              <strong
+                >Kombinasi stres + tidur buruk adalah bom waktu untuk resistensi
+                insulin.</strong
+              >
+              Penelitian menunjukkan mereka yang tidur kurang dari 5 jam per
+              malam memiliki risiko diabetes 2.5x lebih tinggi.
+            </p>
+          </div>
+
+          <!-- Trigger 4 -->
+          <div class="trigger-card fade-in-element">
+            <div class="trigger-number">04</div>
+            <h3 class="trigger-title">
+              Kelebihan Berat Badan (Overweight/Obesity)
+            </h3>
+            <p class="trigger-desc">
+              Lemak perut (visceral fat) adalah yang paling berbahaya. Lemak ini
+              melepaskan hormon dan zat kimia yang menggerakkan peradangan dan
+              resistensi insulin.
+              <strong
+                >90% orang dengan diabetes tipe 2 mengalami kelebihan berat
+                badan.</strong
+              >
+              Penurunan berat badan hanya 5-10% saja sudah bisa secara
+              signifikan meningkatkan sensitivitas insulin Anda.
+            </p>
+          </div>
+
+          <!-- Trigger 5 -->
+          <div class="trigger-card fade-in-element">
+            <div class="trigger-number">05</div>
+            <h3 class="trigger-title">Faktor Genetik & Riwayat Keluarga</h3>
+            <p class="trigger-desc">
+              Jika orang tua atau saudara Anda memiliki diabetes, risiko Anda
+              meningkat 40-50%. Namun,
+              <strong
+                >genetic bukan takdir – lingkungan dan pilihan gaya hidup jauh
+                lebih penting.</strong
+              >
+              Seseorang dengan gen rentan diabetes bisa tetap sehat dengan gaya
+              hidup baik, sementara yang tidak memiliki faktor genetik bisa
+              terkena jika tidak menjaga diri.
+            </p>
+          </div>
+        </div>
+
+        <div class="triggers-cta fade-in-element">
+          <p>
+            Berapa banyak dari 5 pemicu ini yang Anda alami? Jangan khawatir –
+            yang baik adalah Anda sudah aware. Saatnya mengambil aksi!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GEJALA DIABETES (TIMELINE) ===== -->
+    <a id="gejala-tanda"></a>
+    <section class="section symptoms-section" id="symptomsSection">
+      <div class="container">
+        <h2 class="section-title">
+          Gejala Diabetes: Tanda-Tanda yang Harus Anda Ketahui
+        </h2>
+        <p class="section-subtitle">
+          Banyak orang tidak menyadari mereka memiliki diabetes karena gejalanya
+          bisa sangat halus. Ketahui tanda-tanda peringatan ini agar Anda bisa
+          bertindak lebih cepat.
+        </p>
+
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">1. Haus Berlebihan (Polydipsia)</h3>
+              <p class="timeline-desc">
+                Gula darah tinggi menyebabkan cairan ditarik dari jaringan,
+                membuat mulut dan gusi kering. Otak Anda sinyal untuk minum
+                lebih banyak. Jika Anda tiba-tiba sangat haus meski sudah minum
+                banyak, ini bisa menjadi tanda peringatan.
+                <strong>Berapa banyak air yang normal?</strong> Biasanya 6-8
+                gelas sehari, tapi jika Anda minum 15+ gelas sehari tanpa alasan
+                jelas, konsultasikan dengan dokter.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">
+                2. Buang Air Kecil Sering (Polyuria)
+              </h3>
+              <p class="timeline-desc">
+                Ginjal mencoba mengeluarkan kelebihan gula melalui urin,
+                sehingga Anda perlu buang air kecil lebih sering, terutama di
+                malam hari.
+                <strong>Frekuensi normal adalah 6-8 kali sehari.</strong>
+                Jika Anda bangun 3+ kali di malam hari untuk buang air kecil,
+                atau mengunjungi toilet lebih dari 10 kali sehari, ini patut
+                diwaspadai, terutama jika disertai gejala lain.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">3. Rasa Lapar Ekstrem (Polyphagia)</h3>
+              <p class="timeline-desc">
+                Meski makan banyak, sel-sel tidak mendapat glukosa yang mereka
+                butuhkan (karena insulin rusak atau tidak cukup). Otak terus
+                sinyal "kami masih lapar!" Anda bisa makan sepiring besar tapi
+                masih merasa sangat lapar 30 menit kemudian.
+                <strong>Ini berbeda dengan lapar normal.</strong> Lapar diabetes
+                adalah sensasi obsesif dan tidak puas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">4. Kelelahan & Kelemahan (Fatigue)</h3>
+              <p class="timeline-desc">
+                Sel Anda tidak mendapat energi yang cukup karena glukosa tidak
+                masuk ke dalam sel dengan baik. Hasilnya, Anda merasa sangat
+                lelah meski cukup istirahat.
+                <strong
+                  >Kelelahan ini adalah kelelahan yang dalam, bukan hanya karena
+                  kurang tidur.</strong
+                >
+                Anda mungkin tidak termotivasi untuk sesuatu yang biasanya Anda
+                sukai, merasa lesu sepanjang hari, atau kesulitan
+                berkonsentrasi.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">
+                5. Penglihatan Kabur (Blurry Vision)
+              </h3>
+              <p class="timeline-desc">
+                Gula darah tinggi menyebabkan pembengkakan lensa mata, mengubah
+                kemampuan fokus. Penglihatan kabur bisa tiba-tiba muncul atau
+                bertahap.
+                <strong
+                  >Ini serius karena bisa menjadi neuropati diabetik</strong
+                >
+                jika tidak ditangani. Jika Anda tiba-tiba mengalami penglihatan
+                kabur tanpa alasan (misalnya karena kecapekan), periksakan ke
+                dokter mata segera.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">
+                6. Luka Sulit Sembuh & Infeksi Sering
+              </h3>
+              <p class="timeline-desc">
+                Kadar gula tinggi melemahkan sistem imun dan menghambat proses
+                penyembuhan. Luka kecil yang seharusnya sembuh dalam 3-5 hari,
+                bisa bertahan berminggu-minggu.
+                <strong
+                  >Infeksi jamur atau bakteri juga lebih sering terjadi.</strong
+                >
+                Wanita mungkin mengalami infeksi jamur vagina yang sering,
+                sementara pria bisa mengalami infeksi di area genital.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 7 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">
+                7. Kesemutan atau Mati Rasa (Neuropathy)
+              </h3>
+              <p class="timeline-desc">
+                Kadar gula tinggi dalam jangka panjang merusak saraf
+                (neuropati). Anda mungkin merasakan kesemutan atau mati rasa di
+                jari tangan, jari kaki, atau ekstremitas lainnya.
+                <strong
+                  >Ini adalah tanda bahwa diabetes sudah memengaruhi saraf
+                  Anda.</strong
+                >
+                Meski bisa reversibel jika ditangani cepat, kematian saraf yang
+                berkepanjangan bisa permanen.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 8 -->
+          <div class="timeline-item fade-in-element">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">
+                8. Bau Mulut atau Nafas "Buah" (Ketosis)
+              </h3>
+              <p class="timeline-desc">
+                Pada diabetes tipe 1 atau diabetes tipe 2 yang tidak terkontrol,
+                tubuh dapat memasuki keadaan ketosis, membakar lemak terlalu
+                cepat dan menghasilkan keton.
+                <strong
+                  >Gejala ini paling serius dan membutuhkan perhatian medis
+                  mendesak.</strong
+                >
+                Nafas berbau manis seperti aseton atau buah fermentasi bisa
+                disertai mual, muntah, sakit perut, dan kebingungan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="symptoms-warning fade-in-element">
+          <p>
+            <strong>Penting:</strong> Anda tidak perlu memiliki semua gejala ini
+            untuk didiagnosis diabetes. Beberapa orang bahkan tidak menunjukkan
+            gejala sama sekali sampai penyakitnya sudah lanjut.
+            <strong
+              >Jika Anda mengalami 2 atau lebih gejala di atas selama lebih dari
+              2 minggu, segera periksakan ke dokter.</strong
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section nutrition-section" id="pola-makan-sehat"></section>
+    <!-- ===== PENCEGAHAN & GAYA HIDUP SEHAT ===== -->
+    <section class="section prevention-section" id="preventionSection">
+      <div class="container">
+        <h2 class="section-title">
+          Pencegahan & Gaya Hidup Sehat: Ambil Kontrol Sekarang
+        </h2>
+        <p class="section-subtitle">
+          Yang terbaik adalah mencegah daripada mengobati. Berikut adalah
+          strategi konkret yang bisa Anda mulai hari ini.
+        </p>
+
+        <div class="prevention-grid">
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/couple-jogging-park.jpg"
+              alt="Gerak Tubuh"
+              class="prevention-icon"
+            />
+            <h3>Gerak Tubuh Secara Teratur</h3>
+            <p>
+              <strong>Target:</strong> Minimal 150 menit aktivitas sedang per
+              minggu (misalnya: jogging, bersepeda, berenang). Kombinasikan
+              dengan strength training 2x per minggu untuk membangun otot yang
+              membantu mengatur glukosa.
+              <strong>Mulai dengan kecil:</strong> Jalan 30 menit setiap hari
+              sudah terbukti efektif menurunkan risiko 30%.
+            </p>
+          </div>
+
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/flat-lay-delicious-food-plate.jpg"
+              alt="Pola Makan"
+              class="prevention-icon"
+            />
+            <h3>Pola Makan Seimbang</h3>
+            <p>
+              <strong>Kurangi:</strong> Gula, minuman bersoda, makanan olahan,
+              nasi putih, roti putih. <strong>Tingkatkan:</strong> Serat
+              (sayuran, buah, biji-bijian utuh), protein lean, lemak sehat
+              (ikan, almond). <strong>Proporsi:</strong> 50% sayuran, 25%
+              protein, 25% karbohidrat kompleks.
+            </p>
+          </div>
+
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/young-guy-sleeping-bed-wearing-smartwatch-sleep-tracker.jpg"
+              alt="Tidur"
+              class="prevention-icon"
+            />
+            <h3>Tidur Berkualitas</h3>
+            <p>
+              <strong>Target:</strong> 7-9 jam per malam. Kurang tidur
+              mengganggu hormon insulin dan cortisol.
+              <strong>Tips:</strong> Konsisten dengan jadwal tidur, hindari
+              layar 1 jam sebelum tidur, ciptakan lingkungan gelap dan sejuk.
+            </p>
+          </div>
+
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/business-woman-is-stressed-from-work.jpg"
+              alt="Kelola Stres"
+              class="prevention-icon"
+            />
+            <h3>Kelola Stres</h3>
+            <p>
+              <strong>Metode:</strong> Meditasi, yoga, journaling, atau hobi
+              yang Anda sukai. Bahkan 10 menit meditasi setiap hari bisa
+              menurunkan cortisol hingga 25%.
+              <strong>Prioritas kesehatan mental</strong>
+              sama pentingnya dengan kesehatan fisik.
+            </p>
+          </div>
+
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/woman-standing-scale.jpg"
+              alt="Berat Badan"
+              class="prevention-icon"
+            />
+            <h3>Jaga Berat Badan Ideal</h3>
+            <p>
+              <strong>Bukan tentang angka di timbangan,</strong> tapi tentang
+              mengurangi lemak perut. Penurunan 5-10% saja sudah signifikan.
+              Konsultasi dengan dokter atau ahli gizi untuk target berat badan
+              ideal Anda.
+            </p>
+          </div>
+
+          <div class="prevention-card fade-in-element">
+            <img
+              src="../../aset/gambar/closeup-shot-doctor-with-rubber-gloves-taking-blood-test-from-patient.jpg"
+              alt="Pemeriksaan"
+              class="prevention-icon"
+            />
+            <h3>Pemeriksaan Rutin</h3>
+            <p>
+              <strong>Setiap tahun:</strong> Cek gula darah puasa, HbA1c
+              (rata-rata gula 3 bulan), kolesterol, dan tekanan darah.
+              <strong>Deteksi dini adalah penyelamat.</strong> Jika ada riwayat
+              keluarga, mulai screening dari usia 25 tahun.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL/MOTIVASI SECTION ===== -->
+    <!-- ===== POLA MAKAN SEHAT ===== -->
+
+    <section class="section testimonial-section" id="testimonialS">
+      <div class="testimonial-container">
+        <div class="testimonial-quote fade-in-element">
+          <p class="quote-text">
+            "Kesehatan adalah investasi terbaik yang bisa Anda buat. Setiap
+            keputusan kecil hari ini adalah langkah besar menuju masa depan yang
+            lebih sehat dan bahagia."
+          </p>
+          <div class="quote-author">
+            <p class="author-name">Edukasi Kesehatan Indonesia</p>
+            <p class="author-subtitle">Komitmen untuk Hidup Lebih Sehat</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-grid">
+          <div class="foot-brand">
+            <a href="../beranda/beranda.html" class="foot-logo-link"
+              ><img
+                src="../../aset/logo/logo.png"
+                alt="HEALTHY Web Logo"
+                class="footer-logo-img"
+            /></a>
+            <p>
+              Portal edukasi diabetes terpercaya untuk masyarakat Indonesia.
+              Membantu Anda memahami, mencegah, dan mengelola diabetes.
+            </p>
+          </div>
+
+          <div class="foot-col">
+            <h4>NAVIGASI</h4>
+            <ul>
+              <li><a href="../beranda/beranda.html">Beranda</a></li>
+              <li><a href="edukasi.html">Materi</a></li>
+              <li>
+                <a href="../kalkulator/kalkulatorGula.html">Cek Risiko</a>
+              </li>
+              <li><a href="../gim/gim.html">Trivia</a></li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>TOPIK EDUKASI</h4>
+            <ul>
+              <li>
+                <a href="edukasi.html#diabetes-tipe-1">Diabetes Tipe 1</a>
+              </li>
+              <li>
+                <a href="edukasi.html#diabetes-tipe-2">Diabetes Tipe 2</a>
+              </li>
+              <li><a href="edukasi.html#gejala-tanda">Gejala & Tanda</a></li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>LAINNYA</h4>
+            <ul>
+              <li>
+                <a href="edukasi.html#pola-makan-sehat">Pola Makan Sehat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-box">
+          <p>CrowdIT 2026</p>
+          <p class="foot-note">
+            <em
+              >Informasi di situs ini hanya untuk edukasi, bukan pengganti
+              nasihat medis profesional.</em
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="scrip.js"></script>
+    <script src="../beranda/main.js"></script>
+  </body>
+</html>

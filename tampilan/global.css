@@ -1,0 +1,178 @@
+/* ========================================================================
+   RESET & GLOBAL STYLES
+   ======================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4F9F9; 
+  color: #114E60;           
+  overflow-x: hidden;        
+}
+
+a {
+  text-decoration: none;    
+  color: inherit;            
+}
+
+ul {
+  list-style: none;          
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================================================
+   NAVBAR COMPONENTS (DESKTOP)
+   ======================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent; 
+  transition: all 0.4s ease;     
+  padding: 20px 0;
+  height: auto;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-scrolled {
+  background-color: #0a3a47;    
+  padding: 15px 0; /* Lebih tipis saat di-scroll */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: 700;
+  color: #114E60;
+  transition: color 0.4s ease;
+  display: block;
+}
+
+.logo-img {
+  height: 80px; /* Diatur ulang agar proporsional */
+  width: auto;
+  object-fit: contain;
+}
+
+/* State saat di-scroll */
+.navbar-scrolled .logo a { color: #FFFFFF; }
+.navbar-scrolled .logo-img { filter: brightness(1.2); }
+
+/* Menu Navigasi Desktop */
+.nav-links { display: flex; gap: 30px; }
+
+.nav-item {
+  font-size: 16px;
+  font-weight: 500;
+  color: #114E60;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #10B981 !important;
+  border-bottom: 3px solid #10B981 !important;
+  font-weight: 600;
+}
+
+/* Link saat navbar di-scroll */
+.navbar-scrolled .nav-item {
+  color: #FFFFFF !important;
+}
+
+/* Hamburger Menu (hidden on desktop) */
+.hamburger-menu {
+  display: none; 
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #114E60; 
+  transition: all 0.3s ease;
+}
+
+.navbar-scrolled .hamburger-menu .bar {
+  background-color: #FFFFFF;
+}
+
+/* ========================================================================
+   RESPONSIVE NAVBAR (MOBILE & TABLET)
+   ======================================================================== */
+@media screen and (max-width: 768px) {
+  .navbar {
+    background-color: #114E60 !important;
+    padding: 15px 0;
+  }
+
+  .hamburger-menu { display: flex; z-index: 1003; }
+  .hamburger-menu .bar { background-color: #FFFFFF !important; }
+
+  /* Mobile menu panel */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    height: 100vh;
+    background-color: #114E60;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Dipusatkan agar estetik */
+    gap: 20px;
+    padding: 20px;
+    transition: left 0.4s ease;
+    z-index: 1002;
+  }
+
+  .nav-links.mobile-active { left: 0; }
+
+  .nav-links li { width: 85%; display: flex; justify-content: center; }
+
+  /* Tombol Menu Mobile */
+  .nav-item {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #059669;
+    color: #FFFFFF !important;
+    border-radius: 12px;
+    border-bottom: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-item:hover {
+    background-color: #25CCF7;
+    transform: translateY(-2px);
+  }
+}

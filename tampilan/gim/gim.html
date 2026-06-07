@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gim Piring Sehat - HealthyWeb</title>
+    <link rel="stylesheet" href="../beranda/beranda.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="gim.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-box">
+        <div class="logo">
+          <a href="../beranda/beranda.html"
+            ><img
+              src="../../aset/logo/logo.png"
+              alt="HEALTHY Web Logo"
+              class="logo-img"
+          /></a>
+        </div>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../beranda/beranda.html" class="nav-item">Home</a></li>
+            <li>
+              <a href="../materi/edukasi.html" class="nav-item">Materi</a>
+            </li>
+            <li>
+              <a href="../kalkulator/kalkulatorGula.html" class="nav-item"
+                >Cek Risiko</a
+              >
+            </li>
+            <li><a href="gim.html" class="nav-item active">Trivia</a></li>
+          </ul>
+        </nav>
+
+        <div class="hamburger-menu" id="hamburger-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-page">
+      <div class="hero-page__content">
+        <h1 class="hero-page__title">
+          <span class="hero__word">Mitos atau Fakta?</span>
+        </h1>
+        <p class="hero-page__subtitle">
+          Belajar mengetahui fakta atau mitos lewat permainan interaktif dan
+          tantangan visual yang seru.
+        </p>
+      </div>
+    </section>
+
+    <div class="dot-grid-container">
+      <div class="game-container">
+        <div class="quiz-ribbon hidden" id="ribbon">
+          <div class="ribbon-content">
+            <span class="ribbon-title">QUIZ</span>
+            <div class="ribbon-stats">
+              <div class="stat-box">Skor: <span id="score">0</span></div>
+              <div class="stat-box"><span id="progress">Soal 1 / 10</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card">
+          <div class="card-inner" id="card-inner">
+            <div class="card-front">
+              <div id="start-content" class="start-screen">
+                <h3>Siap Mulai Main?</h3>
+                <p>
+                  Pilih jawaban yang benar dan pelajari fakta kesehatan dengan
+                  cepat.
+                </p>
+                <button
+                  class="btn btn-start"
+                  id="start-btn"
+                  onclick="startGame()"
+                >
+                  Mulai Main
+                </button>
+              </div>
+              <div
+                id="question-content"
+                class="question-screen"
+                style="display: none"
+              >
+                <h3 id="question-text"></h3>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3 id="answer-status"></h3>
+              <p id="explanation-text"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls" id="controls" style="display: none">
+          <button
+            class="btn btn-myth"
+            id="myth-btn"
+            onclick="checkAnswer('Mitos')"
+          >
+            MITOS
+          </button>
+          <button
+            class="btn btn-fact"
+            id="fact-btn"
+            onclick="checkAnswer('Fakta')"
+          >
+            FAKTA
+          </button>
+          <button
+            class="btn btn-next"
+            id="next-btn"
+            onclick="nextQuestion()"
+            style="display: none"
+          >
+            SOAL SELANJUTNYA
+          </button>
+          <button
+            class="btn btn-restart"
+            id="restart-btn"
+            onclick="location.reload()"
+            style="display: none"
+          >
+            MULAI ULANG
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-grid">
+          <div class="foot-brand">
+            <a href="../beranda/beranda.html" class="foot-logo-link"
+              ><img
+                src="../../aset/logo/logo.png"
+                alt="HEALTHY Web Logo"
+                class="footer-logo-img"
+            /></a>
+            <p>
+              Portal edukasi diabetes terpercaya untuk masyarakat Indonesia.
+              Membantu Anda memahami, mencegah, dan mengelola diabetes.
+            </p>
+          </div>
+
+          <div class="foot-col">
+            <h4>NAVIGASI</h4>
+            <ul>
+              <li><a href="../beranda/beranda.html">Beranda</a></li>
+              <li><a href="../materi/edukasi.html">Materi</a></li>
+              <li>
+                <a href="../kalkulator/kalkulatorGula.html">Cek Risiko</a>
+              </li>
+              <li><a href="gim.html">Trivia</a></li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>TOPIK EDUKASI</h4>
+            <ul>
+              <li>
+                <a href="../materi/edukasi.html#diabetes-tipe-1"
+                  >Diabetes Tipe 1</a
+                >
+              </li>
+              <li>
+                <a href="../materi/edukasi.html#diabetes-tipe-2"
+                  >Diabetes Tipe 2</a
+                >
+              </li>
+              <li>
+                <a href="../materi/edukasi.html#gejala-tanda">Gejala & Tanda</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>LAINNYA</h4>
+            <ul>
+              <li>
+                <a href="../materi/edukasi.html#pola-makan-sehat"
+                  >Pola Makan Sehat</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-box">
+          <p>CrowdIT 2026</p>
+          <p class="foot-note">
+            <em
+              >Informasi di situs ini hanya untuk edukasi, bukan pengganti
+              nasihat medis profesional.</em
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="gim.js"></script>
+    <script src="../beranda/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sugar Intake Calculator - HEALTHYWeb</title>
+    <link rel="stylesheet" href="../beranda/beranda.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-box">
+        <div class="logo">
+          <a href="../beranda/beranda.html"
+            ><img
+              src="../../aset/logo/logo.png"
+              alt="HEALTHY Web Logo"
+              class="logo-img"
+          /></a>
+        </div>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../beranda/beranda.html" class="nav-item">Home</a></li>
+            <li>
+              <a href="../materi/edukasi.html" class="nav-item">Materi</a>
+            </li>
+            <li>
+              <a href="kalkulatorGula.html" class="nav-item active"
+                >Cek Risiko</a
+              >
+            </li>
+            <li><a href="../gim/gim.html" class="nav-item">Trivia</a></li>
+          </ul>
+        </nav>
+
+        <div class="hamburger-menu" id="hamburger-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-page">
+      <div class="hero-page__content">
+        <h1 class="hero-page__title">Cek Risiko Diabetes</h1>
+        <p class="hero-page__subtitle">
+          Hitung risiko Anda dan pahami seberapa besar konsumsi gula serta
+          faktor gaya hidup yang memengaruhi kesehatan.
+        </p>
+      </div>
+    </section>
+
+    <div class="calculator-container">
+      <section class="education-card" id="educationCard">
+        <div class="edu-panel active" id="eduIntake">
+          <h2>Pahami Batas Gula Harianmu</h2>
+          <p>
+            Berdasarkan standar <strong>Kemenkes RI</strong> dan
+            <strong>WHO</strong>, batas konsumsi gula maksimal per hari adalah
+            <strong>10% dari total kalori</strong> harian. Membatasinya hingga
+            5% memberikan manfaat lebih besar untuk mencegah diabetes sejak
+            dini.
+          </p>
+          <div class="formula-box">
+            <p class="formula-title">Batas Harian per Kategori</p>
+            <ul>
+              <li>
+                <span class="formula-label">Pria Dewasa</span
+                ><span class="formula-value">Maks. 36g <em>(~9 sdt)</em></span>
+              </li>
+              <li>
+                <span class="formula-label">Wanita Dewasa</span
+                ><span class="formula-value">Maks. 25g <em>(~6 sdt)</em></span>
+              </li>
+              <li>
+                <span class="formula-label">Remaja (13–18 thn)</span
+                ><span class="formula-value">Maks. 25g <em>(~6 sdt)</em></span>
+              </li>
+              <li>
+                <span class="formula-label">Anak-anak (2–12 thn)</span
+                ><span class="formula-value">Maks. 22g <em>(~5 sdt)</em></span>
+              </li>
+              <li>
+                <span class="formula-label">Lansia (65+ thn)</span
+                ><span class="formula-value">Maks. 25g <em>(~6 sdt)</em></span>
+              </li>
+            </ul>
+          </div>
+          <p class="disclaimer">
+            *1 sendok teh (sdt) ≈ 4–5 gram gula tambahan.
+          </p>
+        </div>
+
+        <div class="edu-panel" id="eduBloodSugar">
+          <h2>Pahami Kadar Gula Darahmu</h2>
+          <p>
+            Kadar gula darah diukur dalam <strong>mg/dL</strong> dan bervariasi
+            tergantung waktu pengukuran. Pemeriksaan rutin sangat penting untuk
+            mendeteksi prediabetes atau diabetes sejak dini.
+          </p>
+          <div class="formula-box">
+            <p class="formula-title">Batas Normal per Kondisi</p>
+            <ul>
+              <li>
+                <span class="formula-label">Puasa (sebelum makan)</span>
+                <span class="formula-value">Normal ≤ 100 <em>mg/dL</em></span>
+              </li>
+              <li>
+                <span
+                  class="formula-label"
+                  style="opacity: 0.6; font-size: 0.78rem"
+                  >Prediabetes (puasa)</span
+                >
+                <span class="formula-value" style="font-size: 0.82rem"
+                  >101–125 <em>mg/dL</em></span
+                >
+              </li>
+              <li>
+                <span
+                  class="formula-label"
+                  style="opacity: 0.6; font-size: 0.78rem"
+                  >Diabetes (puasa)</span
+                >
+                <span class="formula-value" style="font-size: 0.82rem"
+                  >≥ 126 <em>mg/dL</em></span
+                >
+              </li>
+              <li style="margin-top: 6px">
+                <span class="formula-label">Acak / Setelah Makan</span>
+                <span class="formula-value">Normal ≤ 140 <em>mg/dL</em></span>
+              </li>
+              <li>
+                <span
+                  class="formula-label"
+                  style="opacity: 0.6; font-size: 0.78rem"
+                  >Prediabetes (postmeal)</span
+                >
+                <span class="formula-value" style="font-size: 0.82rem"
+                  >141–199 <em>mg/dL</em></span
+                >
+              </li>
+              <li>
+                <span
+                  class="formula-label"
+                  style="opacity: 0.6; font-size: 0.78rem"
+                  >Diabetes (postmeal)</span
+                >
+                <span class="formula-value" style="font-size: 0.82rem"
+                  >≥ 200 <em>mg/dL</em></span
+                >
+              </li>
+            </ul>
+          </div>
+          <p class="disclaimer">
+            *Sumber: American Diabetes Association (ADA) & WHO 2023.
+          </p>
+        </div>
+      </section>
+
+      <section class="calculator-card">
+        <h2>Kalkulator Gula</h2>
+        <p class="subtitle">Cek konsumsi & kadar gula darahmu hari ini.</p>
+
+        <div class="form-tabs">
+          <button type="button" class="tab-btn active" data-tab="intake">
+            Asupan Gula Harian
+          </button>
+          <button type="button" class="tab-btn" data-tab="blood-sugar">
+            Kadar Gula Darah
+          </button>
+        </div>
+
+        <form id="sugarForm" class="tab-content active" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Jenis Kelamin</label>
+              <div class="t-input-wrap">
+                <div class="t-input select-wrapper">
+                  <select id="gender" required>
+                    <option value="" disabled selected>
+                      Pilih Jenis Kelamin
+                    </option>
+                    <option value="male">Pria</option>
+                    <option value="female">Wanita</option>
+                  </select>
+                </div>
+                <p class="t-error-msg">Pilih jenis kelamin.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ageCategory">Kategori Usia</label>
+              <div class="t-input-wrap">
+                <div class="t-input select-wrapper">
+                  <select id="ageCategory" required>
+                    <option value="" disabled selected>
+                      Pilih Kategori Usia
+                    </option>
+                    <option value="adult">Dewasa (19–64 thn)</option>
+                    <option value="teenager">Remaja (13–18 thn)</option>
+                    <option value="children">Anak-anak (2–12 thn)</option>
+                    <option value="elderly">Lansia (65+ thn)</option>
+                  </select>
+                </div>
+                <p class="t-error-msg">Pilih kategori usia.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="currentIntake">Konsumsi Gula Hari Ini</label>
+              <div class="t-input-wrap">
+                <input
+                  class="t-input"
+                  type="number"
+                  id="currentIntake"
+                  min="0"
+                  placeholder="Contoh: 30"
+                  required
+                />
+                <p class="t-error-msg">Masukkan jumlah konsumsi gula.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="unit">Satuan</label>
+              <div class="t-input-wrap">
+                <div class="t-input select-wrapper">
+                  <select id="unit" required>
+                    <option value="" disabled selected>Pilih Satuan</option>
+                    <option value="grams">Gram (g)</option>
+                    <option value="teaspoons">Sendok Teh (sdt)</option>
+                  </select>
+                </div>
+                <p class="t-error-msg">Pilih satuan.</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-calculate">
+            <span>Hitung Sekarang</span>
+            <svg
+              class="btn-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+
+        <form id="bloodSugarForm" class="tab-content" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bloodSugarAge">Kategori Usia</label>
+              <div class="t-input-wrap">
+                <div class="t-input select-wrapper">
+                  <select id="bloodSugarAge" required>
+                    <option value="" disabled selected>
+                      Pilih Kategori Usia
+                    </option>
+                    <option value="adult">Dewasa (19–64 thn)</option>
+                    <option value="teenager">Remaja (13–18 thn)</option>
+                    <option value="children">Anak-anak (2–12 thn)</option>
+                    <option value="elderly">Lansia (65+ thn)</option>
+                  </select>
+                </div>
+                <p class="t-error-msg">Pilih kategori usia.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bloodSugarCondition">Kondisi Pengukuran</label>
+              <div class="t-input-wrap">
+                <div class="t-input select-wrapper">
+                  <select id="bloodSugarCondition" required>
+                    <option value="" disabled selected>
+                      Pilih Kondisi Pengukuran
+                    </option>
+                    <option value="fasting">Puasa (sebelum makan)</option>
+                    <option value="random">Acak (kapan saja)</option>
+                    <option value="postmeal">Setelah makan</option>
+                  </select>
+                </div>
+                <p class="t-error-msg">Pilih kondisi pengukuran.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bloodSugarLevel"
+              >Kadar Gula Darah <span class="unit-label">mg/dL</span></label
+            >
+            <div class="t-input-wrap">
+              <input
+                class="t-input"
+                type="number"
+                id="bloodSugarLevel"
+                min="0"
+                max="600"
+                placeholder="Contoh: 120"
+                required
+              />
+              <p class="t-error-msg">Masukkan kadar gula darah (mg/dL).</p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-calculate">
+            <span>Cek Sekarang</span>
+            <svg
+              class="btn-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+      </section>
+
+      <section id="resultCard" class="result-card hidden">
+        <div class="result-status" id="resultStatus"></div>
+
+        <div id="sugarGaugePanel" class="sugar-gauge-panel hidden">
+          <div id="gaugeTitleText" class="gauge-title">
+            Parameter Gula Harianmu
+          </div>
+          <div class="semicircle-gauge">
+            <svg
+              id="gaugeSvg"
+              viewBox="0 0 200 105"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M 25 100 A 75 75 0 0 1 175 100"
+                fill="none"
+                stroke="#e2e8f0"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <path
+                d="M 25 100 A 75 75 0 0 1 62.5 35.1"
+                fill="none"
+                stroke="#4ade80"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <path
+                d="M 62.5 35.1 A 75 75 0 0 1 100 25"
+                fill="none"
+                stroke="#a3e635"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <path
+                d="M 100 25 A 75 75 0 0 1 137.5 35.1"
+                fill="none"
+                stroke="#facc15"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <path
+                d="M 137.5 35.1 A 75 75 0 0 1 164.9 62.5"
+                fill="none"
+                stroke="#fb923c"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <path
+                d="M 164.9 62.5 A 75 75 0 0 1 175 100"
+                fill="none"
+                stroke="#ef4444"
+                stroke-width="16"
+                stroke-linecap="butt"
+              />
+              <g id="gaugeNeedleGroup" transform="rotate(0, 100, 100)">
+                <line
+                  x1="100"
+                  y1="100"
+                  x2="25"
+                  y2="100"
+                  stroke="#1e293b"
+                  stroke-width="3.5"
+                  stroke-linecap="round"
+                />
+                <circle cx="100" cy="100" r="7" fill="#1e293b" />
+                <circle cx="100" cy="100" r="3.5" fill="#ffffff" />
+              </g>
+            </svg>
+            <div class="gauge-center-info">
+              <span id="gaugeLevelLabel" class="gauge-level-text">–</span>
+              <span id="gaugeValueText" class="gauge-value-text"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-box" id="comparisonBox">
+          <div class="comparison-item">
+            <span>Batas Harianmu</span>
+            <strong id="labelLimit">–</strong>
+          </div>
+          <div class="arrow-container">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              width="20"
+              height="20"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+          <div class="comparison-item">
+            <span>Konsumsimu</span>
+            <strong id="labelCurrent">–</strong>
+          </div>
+        </div>
+
+        <div class="tips-box">
+          <div class="tips-header">
+            <span></span>
+            <h4>Tips Kesehatan</h4>
+          </div>
+          <div id="healthTips"></div>
+        </div>
+
+        <p class="medical-disclaimer">
+          *Hasil ini bersifat edukatif berdasarkan panduan WHO/Kemenkes RI dan
+          tidak menggantikan saran medis dokter atau ahli gizi.
+        </p>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-grid">
+          <div class="foot-brand">
+            <a href="../beranda/beranda.html" class="foot-logo-link"
+              ><img
+                src="../../aset/logo/logo.png"
+                alt="HEALTHY Web Logo"
+                class="footer-logo-img"
+            /></a>
+            <p>
+              Portal edukasi diabetes terpercaya untuk masyarakat Indonesia.
+              Membantu Anda memahami, mencegah, dan mengelola diabetes.
+            </p>
+          </div>
+
+          <div class="foot-col">
+            <h4>NAVIGASI</h4>
+            <ul>
+              <li><a href="../beranda/beranda.html">Beranda</a></li>
+              <li><a href="../materi/edukasi.html">Materi</a></li>
+              <li><a href="kalkulatorGula.html">Cek Risiko</a></li>
+              <li><a href="../gim/gim.html">Gim Piring</a></li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>TOPIK EDUKASI</h4>
+            <ul>
+              <li>
+                <a href="../materi/edukasi.html#diabetes-tipe-1"
+                  >Diabetes Tipe 1</a
+                >
+              </li>
+              <li>
+                <a href="../materi/edukasi.html#diabetes-tipe-2"
+                  >Diabetes Tipe 2</a
+                >
+              </li>
+              <li>
+                <a href="../materi/edukasi.html#gejala-tanda">Gejala & Tanda</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="foot-col">
+            <h4>LAINNYA</h4>
+            <ul>
+              <li>
+                <a href="../materi/edukasi.html#pola-makan-sehat"
+                  >Pola Makan Sehat</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-box">
+          <p>CrowdIT 2026</p>
+          <p class="foot-note">
+            <em
+              >Informasi di situs ini hanya untuk edukasi, bukan pengganti
+              nasihat medis profesional.</em
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../beranda/main.js"></script>
+  </body>
+</html>
