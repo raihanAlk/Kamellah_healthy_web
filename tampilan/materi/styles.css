@@ -1118,21 +1118,3 @@ footer.footer {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* ===== SMOOTH SCROLLBAR (Optional Enhancement) ===== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-accent-md);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-lt);
-}
