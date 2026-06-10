@@ -13,8 +13,7 @@ const questions = [
     { q: "Insulin adalah penyembuh total diabetes.", a: "Mitos", exp: "Insulin adalah terapi untuk mengontrol kadar gula darah." },
     { q: "Gejala diabetes sering kali tidak disadari di tahap awal.", a: "Fakta", exp: "Seringkali muncul saat kondisi sudah cukup tinggi." }
 ];
-
-// Menampilkan layar awal saat halaman dimuat
+ 
 window.onload = function() {
     currentIndex = 0;
     score = 0;
@@ -38,17 +37,12 @@ window.onload = function() {
     }, 800);
 };
 
-// --- LOGIKA ANIMASI KURSOR ---
 const glow = document.createElement('div');
 glow.className = 'cursor-glow';
 document.body.appendChild(glow);
-
 document.addEventListener('mousemove', e => {
-    // Kursor mengekor mouse (Delay diatur oleh CSS transition)
     glow.style.left = e.clientX + 'px';
     glow.style.top = e.clientY + 'px';
-
-    // KUNCI: Sembunyikan cahaya jika mengenai elemen interaktif (Card, Navbar, Footer, Tombol)
     if (e.target.closest('.card, .navbar, .footer, .controls, .btn')) {
         glow.style.opacity = '0'; 
     } else {
@@ -56,19 +50,16 @@ document.addEventListener('mousemove', e => {
     }
 });
 
-// --- LOGIKA KUIS ---
 function checkAnswer(userChoice) {
     const card = document.getElementById('card');
     const mythBtn = document.getElementById('myth-btn');
     const factBtn = document.getElementById('fact-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    // Mencegah user memencet tombol berkali-kali saat proses berjalan
     if (mythBtn.style.display === 'none') return; 
 
     const isCorrect = questions[currentIndex].a === userChoice;
 
-    // 1. UBAH UI TERLEBIH DAHULU (Mencegah bug nyangkut)
     mythBtn.style.display = "none";
     factBtn.style.display = "none";
     nextBtn.style.display = "block";
@@ -77,12 +68,9 @@ function checkAnswer(userChoice) {
     document.getElementById('explanation-text').innerText = questions[currentIndex].exp;
     card.classList.add('flipped');
 
-    // 2. PROSES SKOR & ANIMASI
     if(isCorrect) {
         score += 10;
         document.getElementById('score').innerText = score;
-        
-        // Animasi Confetti Bertaburan (Dari kiri dan kanan)
         try {
             if (typeof confetti === 'function') {
                 confetti({
@@ -102,7 +90,6 @@ function checkAnswer(userChoice) {
             console.log("Animasi confetti dilewati.");
         }
     } else {
-        // Memicu class shake (yang sekarang sudah berkedip merah)
         card.classList.add('shake');
         setTimeout(() => card.classList.remove('shake'), 500);
     }

@@ -161,14 +161,12 @@ document.getElementById('sugarForm').addEventListener('submit', function (e) {
     resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
 
-// ========== BLOOD SUGAR FORM ==========
 document.getElementById('bloodSugarForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const age       = document.getElementById('bloodSugarAge').value;
     const condition = document.getElementById('bloodSugarCondition').value;
     const levelRaw  = document.getElementById('bloodSugarLevel').value;
-
     const ageEl       = document.getElementById('bloodSugarAge').closest('.t-input');
     const conditionEl = document.getElementById('bloodSugarCondition').closest('.t-input');
     const levelEl     = document.getElementById('bloodSugarLevel');
@@ -184,14 +182,11 @@ document.getElementById('bloodSugarForm').addEventListener('submit', function (e
     const isPostOrRandom = condition === 'random' || condition === 'postmeal';
     const normalMax = isPostOrRandom ? 140 : 100;
     const preMax    = isPostOrRandom ? 199 : 125;
-
     const resultCard   = document.getElementById('resultCard');
     const resultStatus = document.getElementById('resultStatus');
     const healthTips   = document.getElementById('healthTips');
     const compBox      = document.getElementById('comparisonBox');
-
     compBox.classList.add('hidden');
-
     const condLabel = { fasting: 'Puasa', random: 'Acak', postmeal: 'Setelah makan' }[condition];
 
     if (level <= normalMax) {
@@ -224,7 +219,7 @@ document.getElementById('bloodSugarForm').addEventListener('submit', function (e
         showGauge('Parameter Gula Darah', `${level} mg/dL`, 'PREDIABETES', '#ca8a04', bloodAngle(level, normalMax, preMax));
     } else {
         resultStatus.className   = 'result-status status-over';
-        resultStatus.textContent = '🔴 Indikasi Diabetes — Segera Konsultasi Dokter';
+        resultStatus.textContent = 'Indikasi Diabetes — Segera Konsultasi Dokter';
         healthTips.innerHTML = `
             <strong>Kadar Gula Darah: ${level} mg/dL (${condLabel})</strong>
             <br><br>Kadar gula darahmu sangat tinggi dan menunjukkan kemungkinan diabetes. Ini memerlukan perhatian medis serius. Segera konsultasikan ke dokter atau klinik kesehatan terdekat untuk pemeriksaan dan penanganan lebih lanjut.
@@ -237,7 +232,6 @@ document.getElementById('bloodSugarForm').addEventListener('submit', function (e
         `;
         showGauge('Parameter Gula Darah', `${level} mg/dL`, 'DIABETES', '#dc2626', bloodAngle(level, normalMax, preMax));
     }
-
     resultCard.classList.remove('hidden');
     resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });

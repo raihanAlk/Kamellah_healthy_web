@@ -1,18 +1,12 @@
-/* ===================================
-   DIABETES EDUCATION - JAVASCRIPT
-   Intersection Observer + Scroll Animations
-   =================================== */
-
 // ===== CONFIGURATION =====
 const CONFIG = {
     observerOptions: {
         threshold: [0, 0.1, 0.5],
         rootMargin: '0px 0px -100px 0px'
     },
-    animationDelay: 50, // ms between staggered animations
-    scrollThreshold: 5 // pixel threshold for scroll detection
+    animationDelay: 50, 
+    scrollThreshold: 5 
 };
-
 // ===== INTERSECTION OBSERVER SETUP =====
 class AnimationController {
     constructor() {
@@ -27,89 +21,62 @@ class AnimationController {
     }
 
     init() {
-        // Observe all fade-in elements
         const fadeElements = document.querySelectorAll('.fade-in-element');
         fadeElements.forEach(el => this.observer.observe(el));
-
-        // Observe timeline items for special animation
         const timelineItems = document.querySelectorAll('.timeline-item');
         timelineItems.forEach(el => this.observer.observe(el));
-
-        // Setup parallax for hero background
         this.setupParallax();
-
-        // Setup scroll-based opacity/transform effects
         this.setupScrollEffects();
-
-        // Initialize hero text reveal
         this.initHeroAnimation();
-
-        // Setup stat number counters
         this.initStatCounters();
-
-        // Initialize Chart.js pie chart
         this.initChart();
-
-        // Add scroll listener for continuous effects
         this.addScrollListener();
     }
 
     handleIntersection(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Element is entering viewport
                 this.triggerAnimation(entry.target);
             } else {
-                // Element is leaving viewport - reset for re-animation
                 this.resetAnimation(entry.target);
             }
         });
     }
 
     triggerAnimation(element) {
-        // Prevent duplicate animations
         if (this.animatedElements.has(element)) {
             return;
         }
-
         this.animatedElements.add(element);
 
-        // Handle different element types
         if (element.classList.contains('timeline-item')) {
             this.animateTimelineItem(element);
         } else if (element.classList.contains('fade-in-element')) {
             this.animateFadeInElement(element);
         }
-
-        // Staggered animation for grouped elements
-        this.handleStaggeredAnimation(element);
+            this.handleStaggeredAnimation(element);
     }
 
     resetAnimation(element) {
-        // Remove visible class to allow re-animation
         element.classList.remove('visible');
         this.animatedElements.delete(element);
     }
 
     animateTimelineItem(element) {
-        // Add delay for staggered effect
         setTimeout(() => {
             element.classList.add('visible');
         }, 50);
     }
 
     animateFadeInElement(element) {
-        // Add delay for staggered effect
         setTimeout(() => {
             element.classList.add('visible');
         }, 50);
     }
 
     handleStaggeredAnimation(parentElement) {
-        // Check if parent has multiple children that need staggered animation
         const siblings = parentElement.parentElement?.querySelectorAll('.fade-in-element.visible');
         if (siblings && siblings.length > 1) {
-            // Staggered animation handled via CSS animation-delay
         }
     }
 
@@ -119,14 +86,11 @@ class AnimationController {
         if (!heroTitle) return;
 
         const words = heroTitle.querySelectorAll('.hero__word');
-        
-        // Reset words to initial state
         words.forEach(word => {
             word.style.opacity = '0';
             word.style.animationPlayState = 'running';
         });
 
-        // Trigger animation on page load
         setTimeout(() => {
             words.forEach(word => {
                 word.style.animationPlayState = 'running';
@@ -140,7 +104,7 @@ class AnimationController {
         
         const countUp = (element) => {
             const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds
+            const duration = 2000; 
             const steps = 60;
             const increment = target / steps;
             let current = 0;
@@ -156,7 +120,6 @@ class AnimationController {
             }, duration / steps);
         };
 
-        // Observe stat elements
         const statObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.dataset.counted) {
@@ -165,7 +128,6 @@ class AnimationController {
                 }
             });
         }, { threshold: 0.5 });
-
         statNumbers.forEach(stat => statObserver.observe(stat));
     }
 
@@ -180,7 +142,6 @@ class AnimationController {
 
     // ===== SCROLL EFFECTS =====
     setupScrollEffects() {
-        // Store all elements that need scroll effects
         const scrollEffectElements = document.querySelectorAll('[class*="section"]');
         this.scrollEffectElements = Array.from(scrollEffectElements);
     }
@@ -191,8 +152,6 @@ class AnimationController {
 
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-
-            // Use RAF for smooth performance
             if (rafId) cancelAnimationFrame(rafId);
             rafId = requestAnimationFrame(() => {
                 this.updateScrollEffects(scrollY);
@@ -203,14 +162,12 @@ class AnimationController {
     }
 
     updateParallax(scrollY) {
-        // Parallax effect for hero shapes
         this.parallaxElements.forEach((shape, index) => {
             const speed = 0.5 + (index * 0.1);
             const yOffset = scrollY * speed;
             shape.style.transform = `translateY(${yOffset}px)`;
         });
 
-        // Parallax for hero content (subtle upward movement)
         const heroContent = document.querySelector('.hero__content');
         if (heroContent && scrollY < window.innerHeight) {
             const contentSpeed = 0.3;
@@ -221,7 +178,6 @@ class AnimationController {
     }
 
     updateScrollEffects(scrollY) {
-        // Add scale/opacity effects to sections as they become visible
         const viewportCenter = scrollY + window.innerHeight / 2;
 
         this.scrollEffectElements.forEach(section => {
@@ -229,12 +185,9 @@ class AnimationController {
             const elementCenter = rect.top + window.scrollY + rect.height / 2;
             const distance = Math.abs(viewportCenter - elementCenter);
             const maxDistance = window.innerHeight;
-
-            // Calculate opacity based on distance from viewport center
             const opacity = Math.max(0.7, 1 - distance / maxDistance * 0.3);
             const scale = Math.max(0.95, 1 - distance / maxDistance * 0.05);
 
-            // Apply subtle effects (only to visible sections)
             if (distance < maxDistance * 1.5) {
                 section.style.opacity = opacity;
                 section.style.transform = `scale(${scale})`;
@@ -248,8 +201,6 @@ class AnimationController {
         if (!chartCanvas) return;
 
         const ctx = chartCanvas.getContext('2d');
-        
-        // Data untuk diabetes di Indonesia
         const chartData = {
             labels: [
                 'Usia 15-30 tahun',
@@ -260,10 +211,10 @@ class AnimationController {
             datasets: [{
                 data: [15, 28, 35, 22],
                 backgroundColor: [
-                    '#56C5B6',  // Light Mint
-                    '#109497',  // Medium Teal
-                    '#1C5C7A',  // Deep Teal
-                    '#052B56'   // Navy
+                    '#56C5B6', 
+                    '#109497',  
+                    '#1C5C7A',  
+                    '#052B56'   
                 ],
                 borderColor: '#FFFFFF',
                 borderWidth: 3,
@@ -273,7 +224,6 @@ class AnimationController {
             }]
         };
 
-        // Chart options
         const chartOptions = {
             responsive: true,
             maintainAspectRatio: true,
@@ -315,14 +265,12 @@ class AnimationController {
             }
         };
 
-        // Create chart with animation
         this.chart = new Chart(ctx, {
             type: 'doughnut',
             data: chartData,
             options: chartOptions
         });
 
-        // Setup chart animation on scroll into view
         const chartContainer = chartCanvas.closest('.chart-container');
         const chartObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -347,7 +295,6 @@ class TimelineAnimator {
     }
 
     init() {
-        // Setup intersection observer for timeline items
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -368,9 +315,8 @@ class TimelineAnimator {
     }
 
     animateTimelineItem(item) {
-        // Add staggered delay based on position
         const index = Array.from(this.timelineItems).indexOf(item);
-        const delay = index * 100; // 100ms delay between items
+        const delay = index * 100; 
 
         setTimeout(() => {
             item.classList.add('visible');
@@ -389,17 +335,13 @@ class SmoothScrollEnhancer {
     }
 
     init() {
-        // Add smooth scroll behavior if not supported
         if (!CSS.supports('scroll-behavior', 'smooth')) {
             this.polyfillSmoothScroll();
         }
-
-        // Enhance scroll hints
         this.setupScrollHints();
     }
 
     polyfillSmoothScroll() {
-        // Fallback for browsers that don't support smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -414,8 +356,6 @@ class SmoothScrollEnhancer {
     setupScrollHints() {
         const scrollHint = document.querySelector('.hero__scroll-hint');
         if (!scrollHint) return;
-
-        // Hide scroll hint after first scroll
         let hasScrolled = false;
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100 && !hasScrolled) {
@@ -460,7 +400,6 @@ class CardInteractions {
     }
 
     setupMobileTap() {
-        // Add touch feedback for mobile
         const cards = document.querySelectorAll(
             '.trigger-card, .type-card, .prevention-card, .timeline-content'
         );
@@ -484,7 +423,6 @@ class PerformanceMonitor {
     }
 
     init() {
-        // Log when page is fully loaded
         window.addEventListener('load', () => {
             if (window.performance && window.performance.timing) {
                 const perfTiming = window.performance.timing;
@@ -492,8 +430,6 @@ class PerformanceMonitor {
                 console.log(`Page loaded in ${loadTime}ms`);
             }
         });
-
-        // Monitor scroll performance
         this.monitorScrollFPS();
     }
 
@@ -507,7 +443,6 @@ class PerformanceMonitor {
             
             if (deltaTime >= 1000) {
                 const fps = Math.round((frameCount * 1000) / deltaTime);
-                // Only log if FPS drops below 30
                 if (fps < 30) {
                     console.warn(`Low FPS detected: ${fps}`);
                 }
@@ -524,20 +459,18 @@ class PerformanceMonitor {
 
 // ===== MAIN INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all controllers
     const animationController = new AnimationController();
     const timelineAnimator = new TimelineAnimator();
     const smoothScroll = new SmoothScrollEnhancer();
     const cardInteractions = new CardInteractions();
     const performanceMonitor = new PerformanceMonitor();
 
-    console.log('🎓 Diabetes Education Page Initialized');
-    console.log('✨ All animations and interactions are live');
+    console.log('Diabetes Education Page Initialized');
+    console.log('All animations and interactions are live');
 });
 
 // ===== UTILITY FUNCTIONS =====
 
-// Debounce function for resize events
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -550,7 +483,6 @@ function debounce(func, wait) {
     };
 }
 
-// Throttle function for scroll events
 function throttle(func, limit) {
     let inThrottle;
     return function(...args) {
@@ -562,22 +494,18 @@ function throttle(func, limit) {
     };
 }
 
-// Handle window resize for responsive adjustments
 window.addEventListener('resize', debounce(() => {
     console.log('Window resized - animations recalculated');
 }, 250));
 
 // ===== ACCESSIBILITY ENHANCEMENTS =====
-
-// Detect if user prefers reduced motion
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (prefersReducedMotion) {
-    // Disable animations for users who prefer reduced motion
     document.documentElement.style.setProperty('--transition-fast', '0.01ms');
     document.documentElement.style.setProperty('--transition-normal', '0.01ms');
     document.documentElement.style.setProperty('--transition-slow', '0.01ms');
-    console.log('📉 Reduced motion mode enabled');
+    console.log('Reduced motion mode enabled');
 }
 
 // ===== ERROR HANDLING =====

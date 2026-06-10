@@ -2,24 +2,18 @@
    DIABETES EDUCATION - CSS STYLESHEET
    ======================================================================== */
 
-/* ROOT VARIABLES & THEME */
 :root {
-  /* Colors */
   --bg-main: #ffffff;
   --color-primary: #052b56;
   --color-secondary: #1c5c7a;
   --color-accent-md: #109497;
   --color-accent-lt: #56c5b6;
   --text-body: #333333;
-
-  /* Extended palette */
   --color-light-bg: #f5f9fb;
   --color-border: #e0e8ee;
   --color-text-muted: #666666;
   --color-success: #2ecc71;
   --color-warning: #e74c3c;
-
-  /* Typography */
   --font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
@@ -28,7 +22,6 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
@@ -36,18 +29,15 @@
   --spacing-xl: 3rem;
   --spacing-xxl: 4rem;
 
-  /* Transitions */
   --transition-fast: 0.2s ease-out;
   --transition-normal: 0.3s ease-out;
   --transition-slow: 0.5s ease-out;
 
-  /* Border radius */
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
 }
 
-/* RESET & BASE STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -66,7 +56,6 @@ body {
   overflow-x: hidden;
 }
 
-/* UTILITY CLASSES */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -97,7 +86,6 @@ body {
   margin-right: auto;
 }
 
-/* FADE-IN ANIMATION CLASSES */
 .fade-in-element {
   opacity: 0;
   transform: translateY(30px);

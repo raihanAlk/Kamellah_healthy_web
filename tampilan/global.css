@@ -50,7 +50,7 @@ ul {
 
 .navbar-scrolled {
   background-color: #0a3a47;    
-  padding: 15px 0; /* Lebih tipis saat di-scroll */
+  padding: 15px 0; 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
 }
@@ -63,25 +63,15 @@ ul {
   padding: 0 20px;
 }
 
-.logo a {
-  font-size: 24px;
-  font-weight: 700;
-  color: #114E60;
-  transition: color 0.4s ease;
-  display: block;
-}
-
 .logo-img {
-  height: 80px; /* Diatur ulang agar proporsional */
+  height: 25px; 
   width: auto;
   object-fit: contain;
 }
 
-/* State saat di-scroll */
 .navbar-scrolled .logo a { color: #FFFFFF; }
 .navbar-scrolled .logo-img { filter: brightness(1.2); }
 
-/* Menu Navigasi Desktop */
 .nav-links { display: flex; gap: 30px; }
 
 .nav-item {
@@ -99,12 +89,10 @@ ul {
   font-weight: 600;
 }
 
-/* Link saat navbar di-scroll */
 .navbar-scrolled .nav-item {
   color: #FFFFFF !important;
 }
 
-/* Hamburger Menu (hidden on desktop) */
 .hamburger-menu {
   display: none; 
   flex-direction: column;
@@ -135,7 +123,6 @@ ul {
   .hamburger-menu { display: flex; z-index: 1003; }
   .hamburger-menu .bar { background-color: #FFFFFF !important; }
 
-  /* Mobile menu panel */
   .nav-links {
     position: fixed;
     top: 0;
@@ -145,7 +132,7 @@ ul {
     background-color: #114E60;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Dipusatkan agar estetik */
+    justify-content: center; 
     gap: 20px;
     padding: 20px;
     transition: left 0.4s ease;
@@ -153,10 +140,8 @@ ul {
   }
 
   .nav-links.mobile-active { left: 0; }
-
   .nav-links li { width: 85%; display: flex; justify-content: center; }
-
-  /* Tombol Menu Mobile */
+  
   .nav-item {
     display: block;
     width: 100%;

@@ -294,7 +294,7 @@
 .hero-section .hero-wrapper .blob-video {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important; /* Memastikan video padat tanpa distorsi geometri */
+  object-fit: cover !important;
   animation: waveInside 12s ease-in-out infinite alternate;
 }
 
@@ -350,16 +350,6 @@
   margin-bottom: 20px;
 }
 
-.icon-blue {
-  background-color: rgba(37, 204, 247, 0.15);
-}
-.icon-green {
-  background-color: rgba(5, 150, 105, 0.15);
-}
-.icon-orange {
-  background-color: rgba(243, 156, 18, 0.15);
-}
-
 .feature-card h3 {
   font-size: 20px;
   color: #114e60;
@@ -371,6 +361,44 @@
   color: #557a85;
   line-height: 1.6;
 }
+
+.features-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.features-header h2 {
+  font-size: 2.5rem;
+  color: #114e60;
+  margin-bottom: 15px;
+}
+
+.features-header p {
+  color: #557a85;
+  font-size: 1.1rem;
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-blue { color: #25ccf7; }
+.icon-green { color: #059669; }
+.icon-orange { color: #f39c12; }
+
+.features-header {
+  animation: fadeUpIn 1s ease-out forwards;
+}
+
+.feature-card {
+  opacity: 0; 
+  animation: fadeUpIn 1s ease-out forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.3s; }
+.feature-card:nth-child(2) { animation-delay: 0.5s; }
+.feature-card:nth-child(3) { animation-delay: 0.7s; }
 
 /* ==========================================================================
    FOOTER STYLE
@@ -412,7 +440,7 @@
 }
 
 .footer-logo-img {
-  height: 120px;
+  height: 30px;
   width: auto;
   object-fit: contain;
 }
